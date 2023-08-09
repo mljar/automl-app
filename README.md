@@ -1,4 +1,4 @@
-# AutoML Web App
+# AutoML Web App 🤖
 
 It is a Web App for training Machine Learning pipelines with MLJAR AutoML. It works with tabular data. All models are zipped to archive and can be reused to compute predictions in the batch mode.
 
@@ -8,6 +8,15 @@ This repo consists of three notebooks:
 - [notebook](https://github.com/mljar/automl-app/blob/main/automl-predict.ipynb) for computing predictions.
 
 
+The Web App is using [mljar-supervised](https://github.com/mljar/mercury) for constructing ML pipeline with AutoML. It automatically handles:
+- data preprocessing,
+- features engineering,
+- algorithm selection & tuning,
+- ML models explanations,
+- automatic documentation.
+
+The Web App is created directly from Jupyter Notebooks with [Mercury](https://github.com/mljar/mercury) framework.
+
 ### Demo
 
 <kbd>
@@ -16,13 +25,13 @@ This repo consists of three notebooks:
 
 ### Online demo
 
-The Web App is available online at [automl.runmercury.com](https://automl.runmercury.com).
+The Web App is available online at [automl.runmercury.com](https://automl.runmercury.com). Input data upload is limited to 1MB.
 
 <kbd>
 <img src="https://github.com/mljar/automl-app/blob/main/media/web-app-online.png" alt="AutoML Web App online"></img>
 </kbd>
 
-### Run locally
+### Run locally 🖥️
 
 Please run below commands to run Web App locally. It requires Python >= 3.8.
 
@@ -30,8 +39,8 @@ Please run below commands to run Web App locally. It requires Python >= 3.8.
 pip install -r requirements.txt
 mercury run
 ```
-
-### Training Notebook
+ 
+### Training Notebook 📓
 
 If you would like to increast the input file limit please change the cell:
 
@@ -40,6 +49,14 @@ data_file = mr.File(label="Upload CSV with training data", max_file_size="1MB")
 ```
 
 and set your `max_file_size`.
+
+Please change the following cell to increase training time:
+
+```python
+time_limit = mr.Select(label="Time limit (seconds)", value="60", choices=["60", "120", "240", "300"])
+```
+
+Times are in seconds. Please just increase values.
 
 <kbd>
 <img src="https://github.com/mljar/automl-app/blob/main/media/notebook.gif" alt="AutoML training notebook"></img>
@@ -59,10 +76,12 @@ All models created during the training are available for download as zip file:
 <img src="https://github.com/mljar/automl-app/blob/main/media/web-app-download.gif" alt="AutoML models available for download"></img>
 </kbd>
 
-### Advanced Training Notebook
+### Advanced Training Notebook 💪
 
 Please use advanced mode if you would like to tweak AutoML parameters:
 
 <kbd>
 <img src="https://github.com/mljar/automl-app/blob/main/media/web-app-advanced.gif" alt="Advanced AutoML training notebook"></img>
 </kbd>
+
+### Good luck with ML training!
