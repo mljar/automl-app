@@ -1,14 +1,14 @@
 # AutoML Web App 🤖
 
-It is a Web App for training Machine Learning pipelines with MLJAR AutoML. It works with tabular data. All models are zipped to archive and can be reused to compute predictions in the batch mode.
+It is a Web App for training Machine Learning pipelines with MLJAR AutoML. It works with tabular data. All models are zipped to archive and can be reused to compute predictions in batch mode.
 
 This repo consists of three notebooks:
 - [notebook](https://github.com/mljar/automl-app/blob/main/train-automl.ipynb) for training AutoML with simple UI,
-- [advanced notebook](https://github.com/mljar/automl-app/blob/main/train-automl-advanced.ipynb) for training AutoML with more advanced UI (you can select feature engineering methods, algorithms, validation strategy and evaluation metric),
+- [advanced notebook](https://github.com/mljar/automl-app/blob/main/train-automl-advanced.ipynb) for training AutoML with more advanced UI (you can select feature engineering methods, algorithms, validation strategy, and evaluation metric),
 - [notebook](https://github.com/mljar/automl-app/blob/main/automl-predict.ipynb) for computing predictions.
 
 
-The Web App is using [mljar-supervised](https://github.com/mljar/mercury) for constructing ML pipeline with AutoML. It automatically handles:
+The Web App is using [mljar-supervised](https://github.com/mljar/mercury) for constructing the ML pipeline with AutoML. It automatically handles the following:
 - data preprocessing,
 - features engineering,
 - algorithm selection & tuning,
@@ -33,7 +33,7 @@ The Web App is available online at [automl.runmercury.com](https://automl.runmer
 
 ### Run locally 🖥️
 
-Please run below commands to run Web App locally. It requires Python >= 3.8.
+Please run the below commands to run Web App locally. It requires Python >= 3.8.
 
 ```bash
 pip install -r requirements.txt
@@ -42,7 +42,7 @@ mercury run
  
 ### Training Notebook 📓
 
-If you would like to increast the input file limit please change the cell:
+If you would like to increase the input file limit, please change the cell:
 
 ```python
 data_file = mr.File(label="Upload CSV with training data", max_file_size="1MB")
@@ -56,7 +56,7 @@ Please change the following cell to increase training time:
 time_limit = mr.Select(label="Time limit (seconds)", value="60", choices=["60", "120", "240", "300"])
 ```
 
-Times are in seconds. Please just increase values.
+Times are in seconds. Please just increase the values.
 
 <kbd>
 <img src="https://github.com/mljar/automl-app/blob/main/media/notebook.gif" alt="AutoML training notebook"></img>
@@ -64,13 +64,13 @@ Times are in seconds. Please just increase values.
 
 ### Training models in Web App
 
-Please upload CSV file with training data, select input features & target, and click `Start training`.
+Please upload a CSV file with training data, select input features & target, and click `Start training`.
 
 <kbd>
 <img src="https://github.com/mljar/automl-app/blob/main/media/web-app.gif" alt="AutoML training in Web App"></img>
 </kbd>
 
-All models created during the training are available for download as zip file:
+All models created during the training are available for download as a zip file:
 
 <kbd>
 <img src="https://github.com/mljar/automl-app/blob/main/media/web-app-download.gif" alt="AutoML models available for download"></img>
