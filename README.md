@@ -18,7 +18,9 @@ The Web App harnesses the capabilities of [mljar-supervised](https://github.com/
 - algorithm selection & tuning,
 - ML models explanations,
 - automatic documentation.
-
+<p>
+<img src="https://github.com/mljar/automl-app/blob/main/media/pipeline_AutoML.png" width="100%" alt="Supervised learning"></img>
+</p>
 The Web App is created directly from Jupyter Notebooks with [Mercury](https://github.com/mljar/mercury) framework.
 
 ### Demo
