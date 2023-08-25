@@ -1,6 +1,6 @@
 # AutoML Web App 🤖
 
-It is a Web App for training Machine Learning pipelines with MLJAR AutoML. It works with tabular data. All models are zipped to archive and can be reused to compute predictions in batch mode.
+This is a Web Application designed to train Machine Learning pipelines using MLJAR AutoML, specifically tailored for tabular data. All the generated models are compressed into an archive format, allowing their reuse to compute predictions in batch mode.
 
 This repo consists of three notebooks:
 - [notebook](https://github.com/mljar/automl-app/blob/main/train-automl.ipynb) for training AutoML with simple UI,
@@ -8,7 +8,7 @@ This repo consists of three notebooks:
 - [notebook](https://github.com/mljar/automl-app/blob/main/automl-predict.ipynb) for computing predictions.
 
 
-The Web App is using [mljar-supervised](https://github.com/mljar/mercury) for constructing the ML pipeline with AutoML. It automatically handles the following:
+The Web App harnesses the capabilities of [mljar-supervised](https://github.com/mljar/mercury) to construct the Machine Learning pipeline with AutoML. This involves the automation of several key tasks:
 - data preprocessing,
 - features engineering,
 - algorithm selection & tuning,
