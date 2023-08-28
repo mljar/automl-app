@@ -10,6 +10,8 @@
 <a href="https://twitter.com/MLJAROfficial">🐦 Twitter</a>
 <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
 <a href="https://www.linkedin.com/in/aleksandra-p%C5%82o%C5%84ska-42047432/">👩‍💼 LinkedIn</a>
+ <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="https://mljar.com">🌐 MLJAR Website</a>
 </p>
 
 
