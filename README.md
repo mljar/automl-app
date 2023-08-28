@@ -1,5 +1,17 @@
-
 # AutoML Web App 🤖
+
+<p align="left">
+<a href="https://github.com/mljar/mljar-supervised">🚀 AutoML</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+ <a href="https://github.com/mljar/mercury">📓 Mercury</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="https://github.com/mljar/automl-app/issues">🤝 Issues</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="https://twitter.com/MLJAROfficial">🐦 Twitter</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="https://www.linkedin.com/in/aleksandra-p%C5%82o%C5%84ska-42047432/">👩‍💼 LinkedIn</a>
+</p>
+
 
 This is a Web Application designed to train Machine Learning pipelines using MLJAR AutoML, specifically tailored for tabular data. All the generated models are compressed into an archive format, allowing their reuse to compute predictions in batch mode.
 
@@ -88,5 +100,10 @@ Please use advanced mode if you would like to tweak AutoML parameters:
 <kbd>
 <img src="https://github.com/mljar/automl-app/blob/main/media/web-app-advanced.gif" alt="Advanced AutoML training notebook"></img>
 </kbd>
+
+## 👩‍💼🐦 Connect with Us on LinkedIn & Twitter
+
+Stay up-to-date with the latest updates about MLJAR 🎨🤖 by following us on Twitter ([MLJAR Twitter](https://twitter.com/MLJAROfficial)) and LinkedIn ([Aleksandra LinkedIn](https://www.linkedin.com/in/aleksandra-p%C5%82o%C5%84ska-42047432/) & [Piotr LinkedIn](https://www.linkedin.com/in/piotr-plonski-mljar/)). We look forward to connecting with you and hearing your thoughts, ideas, and experiences.
+
 
 ### Good luck with ML training!
