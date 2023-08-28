@@ -1,6 +1,3 @@
-<p>
-<img src="https://github.com/mljar/automl-app/blob/main/media/what_is_supervised.png" width="70%" alt="Supervised learning"></img>
-</p>
 
 # AutoML Web App 🤖
 
@@ -25,9 +22,11 @@ The Web App is created directly from Jupyter Notebooks with [Mercury](https://gi
 
 ### Demo
 
-<kbd>
-<img src="https://github.com/mljar/automl-app/blob/main/media/demo.gif" alt="AutoML Web App demo"></img>
-</kbd>
+
+
+https://github.com/mljar/automl-app/assets/6959032/3363631a-2187-44cd-94a8-3cbd5418de98
+
+
 
 ### Online demo
 
