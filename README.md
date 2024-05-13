@@ -1,3 +1,19 @@
+
+# New way for building ML pipelines!
+
+We are working on new way for Python visual programming.  We developed desktop application called [MLJAR Studio](https://mljar.com). 
+It is a notebook based development environment with interactive code recipes and managed Python environment. All running locally on your machine. We are waiting for your feedback.
+
+It has [code recipes](https://mljar.com/docs/python-automl/) to build ML pipelines with MLJAR AutoML.
+
+<p align="center">
+  <img 
+    alt="mljar AutoML"
+    src="https://raw.githubusercontent.com/pplonski/pplonski/main/media/piece-of-code.png" width="77%" />  
+</p>
+
+---
+
 # AutoML Web App 🤖
 
 <p align="left">
