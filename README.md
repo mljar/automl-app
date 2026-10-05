@@ -1,3 +1,19 @@
+# MLJAR Studio and AutoML
+
+For an AI-assisted workflow, use [MLJAR Studio](https://mljar.com/studio/) to prepare and run training while keeping the Python code editable. Start with the [AutoML Python tutorial](https://mljar.com/tutorials/automl-python/) or inspect the [employee attrition and fairness walkthrough](https://mljar.com/tutorials/automl-hr-employee-attrition-fairness-report/).
+
+[MLJAR AutoML](https://mljar.com/automl/) supports tabular classification and regression. The Python package provides four training modes: `Explain`, `Perform`, `Compete`, and `Optuna`. Reports and explanations depend on the task and configuration; `Optuna` is not exposed in this repository’s notebook controls.
+
+![MLJAR Studio conversation beside an AutoML report](media/studio-automl-chat-and-report.webp)
+
+*AutoML training and reports in MLJAR Studio.*
+
+[![Example AutoML model leaderboard](media/leaderboard.webp)](https://mljar.com/tutorials/automl-hr-employee-attrition-fairness-report/)
+
+*Example report from the employee attrition tutorial; results depend on your dataset and training settings.*
+
+---
+
 # AutoML Web App
 
 Train machine learning models from a CSV file, inspect the results, and download a model archive for batch predictions. This repository turns three Jupyter notebooks into browser apps with [Mercury](https://github.com/mljar/mercury), using [MLJAR AutoML (`mljar-supervised`)](https://github.com/mljar/mljar-supervised) for training.
@@ -91,20 +107,6 @@ time_limit = mr.Select(
 ```
 
 Save the notebook and reload the app after changing its controls.
-
-## Explore the current AutoML workflow
-
-[MLJAR AutoML](https://mljar.com/automl/) supports tabular classification and regression. The Python package provides four training modes: `Explain`, `Perform`, `Compete`, and `Optuna`. Reports and explanations depend on the task and configuration; `Optuna` is not exposed in this repository’s notebook controls.
-
-For an AI-assisted workflow, use [MLJAR Studio](https://mljar.com/studio/) to prepare and run training while keeping the Python code editable. Start with the [AutoML Python tutorial](https://mljar.com/tutorials/automl-python/) or inspect the [employee attrition and fairness walkthrough](https://mljar.com/tutorials/automl-hr-employee-attrition-fairness-report/).
-
-![MLJAR Studio conversation beside an AutoML report](media/studio-automl-chat-and-report.webp)
-
-*AutoML training and reports in MLJAR Studio.*
-
-[![Example AutoML model leaderboard](media/leaderboard.webp)](https://mljar.com/tutorials/automl-hr-employee-attrition-fairness-report/)
-
-*Example report from the employee attrition tutorial; results depend on your dataset and training settings.*
 
 ## Share a prediction app
 
