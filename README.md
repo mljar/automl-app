@@ -1,128 +1,132 @@
+# AutoML Web App
 
-# New way for building ML pipelines!
+Train machine learning models from a CSV file, inspect the results, and download a model archive for batch predictions. This repository turns three Jupyter notebooks into browser apps with [Mercury](https://github.com/mljar/mercury), using [MLJAR AutoML (`mljar-supervised`)](https://github.com/mljar/mljar-supervised) for training.
 
-We are working on new way for Python visual programming.  We developed desktop application called [MLJAR Studio](https://mljar.com). 
-It is a notebook based development environment with interactive code recipes and managed Python environment. All running locally on your machine. We are waiting for your feedback.
+[MLJAR AutoML overview](https://mljar.com/automl/) · [Python documentation](https://supervised.mljar.com/) · [MLJAR Studio](https://mljar.com/studio/)
 
-It has [code recipes](https://mljar.com/docs/python-automl/) to build ML pipelines with MLJAR AutoML.
+![AutoML Web App demonstration](media/demo.gif)
 
-<p align="center">
-  <img 
-    alt="mljar AutoML"
-    src="https://raw.githubusercontent.com/pplonski/pplonski/main/media/piece-of-code.png" width="77%" />  
-</p>
+[Watch the demo video](https://github.com/mljar/automl-app/assets/6959032/3363631a-2187-44cd-94a8-3cbd5418de98).
 
----
+## Included notebooks
 
-# AutoML Web App 🤖
+| Notebook | What it does |
+| --- | --- |
+| [Train AutoML](train-automl.ipynb) | Upload training data, choose features and a target, select a training mode and algorithms, and download trained models. |
+| [Advanced training](train-automl-advanced.ipynb) | Configure Golden Features, feature selection, algorithms, stacking, ensembles, cross-validation, and the evaluation metric. |
+| [Batch predictions](automl-predict.ipynb) | Load a model ZIP archive, upload a CSV of input data, and download `predictions.csv`. |
 
-<p align="left">
-<a href="https://github.com/mljar/mljar-supervised">🚀 AutoML</a>
-<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
- <a href="https://github.com/mljar/mercury">📓 Mercury</a>
-<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-<a href="https://github.com/mljar/automl-app/issues">🤝 Issues</a>
-<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-<a href="https://twitter.com/MLJAROfficial">🐦 Twitter</a>
-<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-<a href="https://www.linkedin.com/in/aleksandra-p%C5%82o%C5%84ska-42047432/">👩‍💼 LinkedIn</a>
- <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-<a href="https://mljar.com">🌐 MLJAR Website</a>
-</p>
+The training notebooks display an AutoML report and export the experiment directory as a ZIP archive. Depending on the selected settings, AutoML handles preprocessing, model selection, tuning, and explanations.
 
+## Run locally
 
-This is a Web Application designed to train Machine Learning pipelines using MLJAR AutoML, specifically tailored for tabular data. All the generated models are compressed into an archive format, allowing their reuse to compute predictions in batch mode.
-
-This repo consists of three notebooks:
-- [notebook](https://github.com/mljar/automl-app/blob/main/train-automl.ipynb) for training AutoML with simple UI,
-- [advanced notebook](https://github.com/mljar/automl-app/blob/main/train-automl-advanced.ipynb) for training AutoML with more advanced UI (you can select feature engineering methods, algorithms, validation strategy, and evaluation metric),
-- [notebook](https://github.com/mljar/automl-app/blob/main/automl-predict.ipynb) for computing predictions.
-
-
-The Web App harnesses the capabilities of [mljar-supervised](https://github.com/mljar/mercury) to construct the Machine Learning pipeline with AutoML. This involves the automation of several key tasks:
-- data preprocessing,
-- features engineering,
-- algorithm selection & tuning,
-- ML models explanations,
-- automatic documentation.
-<p>
-<img src="https://github.com/mljar/automl-app/blob/main/media/pipeline_AutoML.png" width="100%" alt="Supervised learning"></img>
-</p>
-
-The Web App is created directly from Jupyter Notebooks with [Mercury](https://github.com/mljar/mercury) framework.
-
-### Demo
-
-
-
-https://github.com/mljar/automl-app/assets/6959032/3363631a-2187-44cd-94a8-3cbd5418de98
-
-
-
-### Online demo
-
-The Web App is available online at [automl.runmercury.com](https://automl.runmercury.com). Input data upload is limited to 1MB.
-
-<kbd>
-<img src="https://github.com/mljar/automl-app/blob/main/media/web-app-online.png" alt="AutoML Web App online"></img>
-</kbd>
-
-### Run locally 🖥️
-
-Please run the below commands to run Web App locally. It requires Python >= 3.8.
+Clone the repository and run the commands from its root directory:
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/mljar/automl-app.git
+cd automl-app
+python -m venv .venv
+```
+
+Activate the environment on macOS or Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+On Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+Install the dependencies and start Mercury:
+
+```bash
+python -m pip install -r requirements.txt
 mercury run
 ```
- 
-### Training Notebook 📓
 
-If you would like to increase the input file limit, please change the cell:
+Open the local address printed by Mercury and choose a notebook. Use a Python version supported by the installed packages; see the [AutoML installation guide](https://supervised.mljar.com/#installation) and [Mercury documentation](https://runmercury.com/docs/).
+
+## Train a model
+
+1. Open **Train AutoML** or **Train AutoML (advanced)**.
+2. Upload a CSV with column names in the first row.
+3. Select the input features and target column. Exclude the target from the input features.
+4. Choose the algorithms and training time limit, then click **Start training**.
+5. Review the report and download the ZIP archive from the app output.
+
+The basic notebook offers `Explain`, `Perform`, and `Compete` modes. The advanced notebook uses `Compete` and exposes additional controls for feature engineering, validation, and model combination.
+
+![Advanced AutoML training controls](media/web-app-advanced.gif)
+
+## Make batch predictions
+
+1. Open **Predict with AutoML**.
+2. Upload the ZIP archive downloaded after training.
+3. Upload a CSV containing the input features used for training, with matching column names and order.
+4. Inspect the predictions and download `predictions.csv`.
+
+The prediction notebook reloads the saved experiment and calls `automl.predict_all()` on the uploaded data.
+
+![AutoML batch prediction app](media/web-app-predictions.png)
+
+## Adjust upload and training limits
+
+Both training notebooks set a **1 MB** upload limit. Edit this cell to change it:
 
 ```python
 data_file = mr.File(label="Upload CSV with training data", max_file_size="1MB")
 ```
 
-and set your `max_file_size`.
-
-Please change the following cell to increase training time:
+The training time choices are **60, 120, 240, and 300 seconds**. Edit the selector to add a larger budget, for example:
 
 ```python
-time_limit = mr.Select(label="Time limit (seconds)", value="60", choices=["60", "120", "240", "300"])
+time_limit = mr.Select(
+    label="Time limit (seconds)",
+    value="300",
+    choices=["60", "120", "240", "300", "600", "1200"],
+)
 ```
 
-Times are in seconds. Please just increase the values.
+Save the notebook and reload the app after changing its controls.
 
-<kbd>
-<img src="https://github.com/mljar/automl-app/blob/main/media/notebook.gif" alt="AutoML training notebook"></img>
-</kbd>
+## Explore the current AutoML workflow
 
-### Training models in Web App
+[MLJAR AutoML](https://mljar.com/automl/) supports tabular classification and regression. The Python package provides four training modes: `Explain`, `Perform`, `Compete`, and `Optuna`. Reports and explanations depend on the task and configuration; `Optuna` is not exposed in this repository’s notebook controls.
 
-Please upload a CSV file with training data, select input features & target, and click `Start training`.
+For an AI-assisted workflow, use [MLJAR Studio](https://mljar.com/studio/) to prepare and run training while keeping the Python code editable. Start with the [AutoML Python tutorial](https://mljar.com/tutorials/automl-python/) or inspect the [employee attrition and fairness walkthrough](https://mljar.com/tutorials/automl-hr-employee-attrition-fairness-report/).
 
-<kbd>
-<img src="https://github.com/mljar/automl-app/blob/main/media/web-app.gif" alt="AutoML training in Web App"></img>
-</kbd>
+![MLJAR Studio conversation beside an AutoML report](media/studio-automl-chat-and-report.webp)
 
-All models created during the training are available for download as a zip file:
+*AutoML training and reports in MLJAR Studio.*
 
-<kbd>
-<img src="https://github.com/mljar/automl-app/blob/main/media/web-app-download.gif" alt="AutoML models available for download"></img>
-</kbd>
+[![Example AutoML model leaderboard](media/leaderboard.webp)](https://mljar.com/tutorials/automl-hr-employee-attrition-fairness-report/)
 
-### Advanced Training Notebook 💪
+*Example report from the employee attrition tutorial; results depend on your dataset and training settings.*
 
-Please use advanced mode if you would like to tweak AutoML parameters:
+## Share a prediction app
 
-<kbd>
-<img src="https://github.com/mljar/automl-app/blob/main/media/web-app-advanced.gif" alt="Advanced AutoML training notebook"></img>
-</kbd>
+The current AutoML package can generate a Mercury prediction app with `automl.app()`. See the [prediction app tutorial](https://mljar.com/blog/web-app-machine-learning/) for generation and publishing, or [self-host Mercury with Docker](https://runmercury.com/deploy/dockerfile/). [MLJAR Platform](https://platform.mljar.com/) provides managed hosting.
 
-## 👩‍💼🐦 Connect with Us on LinkedIn & Twitter
+![Generated Mercury app for a single prediction](media/prediction-single.webp)
 
-Stay up-to-date with the latest updates about MLJAR 🎨🤖 by following us on Twitter ([MLJAR Twitter](https://twitter.com/MLJAROfficial)) and LinkedIn ([Aleksandra LinkedIn](https://www.linkedin.com/in/aleksandra-p%C5%82o%C5%84ska-42047432/) & [Piotr LinkedIn](https://www.linkedin.com/in/piotr-plonski-mljar/)). We look forward to connecting with you and hearing your thoughts, ideas, and experiences.
+![Generated Mercury app for batch predictions](media/prediction-batch.webp)
 
+*Prediction app examples from the [MLJAR AutoML page](https://mljar.com/automl/), generated with the current AutoML package.*
 
-### Good luck with ML training!
+## More resources
+
+- [Structured reports for Python and AI workflows](https://mljar.com/blog/structured-automl-reports-python-llm/)
+- [AutoML source code](https://github.com/mljar/mljar-supervised)
+- [Mercury documentation](https://runmercury.com/docs/)
+- [Research applications](https://mljar.com/research/)
+
+## Community
+
+Report problems or share ideas in [GitHub Issues](https://github.com/mljar/automl-app/issues). Follow [MLJAR on Twitter](https://twitter.com/MLJAROfficial), [Aleksandra on LinkedIn](https://www.linkedin.com/in/aleksandra-p%C5%82o%C5%84ska-42047432/), or [Piotr on LinkedIn](https://www.linkedin.com/in/piotr-plonski-mljar/).
+
+## License
+
+This repository is available under the [MIT license](LICENSE). MLJAR Studio and managed hosting have separate plans.
